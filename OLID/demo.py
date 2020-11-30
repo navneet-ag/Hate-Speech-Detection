@@ -35,16 +35,20 @@ modelC=load_model(modelpathC)
 # print(modelC.predict(xC))
 
 while True:
+    print()
     print("Please Enter Your Text Sentence: ")
     sent=input()
     xA=dataA.ui_helper([sent])
     outA=modelA.predict(xA)
     # print(outA[0])
+    print()
     print("Task A Model selected: ",modelpathA)
     if  outA[0]!=("OFF"):
         print("The given Sentence is not classified as Offensive")
+
     else:
         print("The given Sentence is classified as Offensive")
+        print()
         print("Task B Model selected: ",modelpathB)
         xB=dataB.ui_helper([sent])
         outB=modelB.predict(xB)
@@ -52,6 +56,7 @@ while True:
             print("The given Sentence is not classified as Targeted")
         else:
             print("The given Sentence is classified as Targeted")
+            print()
             print("Task C Model selected: ",modelpathC)
             xC=dataC.ui_helper([sent])
             outC=modelC.predict(xC)
