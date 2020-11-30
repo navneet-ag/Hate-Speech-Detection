@@ -3,9 +3,7 @@ import nltk
 import string
 import re
 import numpy as np
-from tqdm import tqdm
 import pandas as pd
-from tqdm import tqdm
 import pickle
 import emoji
 
@@ -49,7 +47,7 @@ class Features:
         # pass tweets as it is
         
         AllCapsCount = np.zeros(len(GivenTweets))
-        for i in tqdm(range(len(GivenTweets))):
+        for i in range(len(GivenTweets)):
             tweet = nltk.word_tokenize(GivenTweets[i])
             for word in tweet:
                 if(word!="I" and word != "USER" and word != "URL" and re.match("^[A-Z]+$",word)):
@@ -64,7 +62,7 @@ class Features:
         ContPunctuationCount=np.zeros(len(GivenTweets))
         LastTokenPunctuation=np.zeros(len(GivenTweets))
         
-        for i in tqdm(range(len(GivenTweets))):
+        for i in range(len(GivenTweets)):
             tweet = nltk.word_tokenize(GivenTweets[i])
             token = 0
 
@@ -89,7 +87,7 @@ class Features:
         # pass tweets as it is
         
         HashTagsCount=np.zeros(len(GivenTweets))
-        for i in tqdm(range(len(GivenTweets))):
+        for i in (range(len(GivenTweets))):
             tweet=GivenTweets[i].split(" ")
             for word in tweet:
                 if(re.match("^#[a-zA-Z][a-zA-Z0-9]*",word)):
